@@ -1,0 +1,105 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 3px;
+  padding: 1px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --primary-color: #f6f7fb;
+  --white-color: #fff;
+  --black-color: #000000;
+  --red-color: #e74c3c;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+}
+body.dark {
+  --primary-color: #000000;
+  --white-color: #191a1b;
+  --black-color: #fff;
+  --red-color: hsl(0, 100%, 50%);
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+.container .clock {
+  display: flex;
+  height: 430px;
+  width: 430px;
+  border-radius: 30%;
+  align-items: center;
+  justify-content: center;
+  background: var(--white-color);
+  box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.5), 0 25px 45px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.clock label {
+  position: absolute;
+  border-radius: 30%;
+  inset: 2px;
+  text-align: center;
+  transform: rotate(calc(var(--i) * (360deg / 12)));
+}
+.clock label span {
+  display: inline-block;
+  font-size: 33px;
+  font-weight: 800;
+  color: var(--red-color);
+  transform: rotate(calc(var(--i) * (-360deg / 12)));
+}
+.container .indicator {
+  position: absolute;
+  height: 11px;
+  width: 11px;
+  display: flex;
+  justify-content: center;
+}
+.indicator::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 30%;
+  z-index: 100;
+  background: var(--black-color);
+  border: 4px solid var(--red-color);
+}
+.indicator .hand {
+  position: absolute;
+  height: 135px;
+  width: 3px;
+  bottom: 0;
+  border-radius: 30px;
+  transform-origin: bottom;
+  background: var(--red-color);
+}
+.hand.minute {
+  height: 120px;
+  width: 6px;
+  background: var(--black-color);
+}
+.hand.hour {
+  height: 100px;
+  width: 10px;
+  background: var(--black-color);
+}
+.mode-switch {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 400;
+  display: inline-block;
+  color: var(--white-color);
+  background: var(--black-color);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
